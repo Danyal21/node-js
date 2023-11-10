@@ -26,7 +26,7 @@ app.get('/randomQuote', (req, res) => {
   });
 
   app.get('/Cute', (req, res) => {
-    res.json({ message: 'Tur, Ture!' });
+    res.json({ message: 'tic, false!' });
   });
 
 
