@@ -8,7 +8,7 @@ app.use(express.static('./'))
 app.get("/getproducts",(req,res)=>{
     
 const pathlocation = path.resolve();
-res.sendFile(path.join(pathlocation, "./index.html"));
+res.render('index.html');
 
 
 });
