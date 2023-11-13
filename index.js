@@ -6,11 +6,11 @@ const app = express();
 
 app.use(express.static('./'))
 app.get("/getproducts",(req,res)=>{
-res.json({
-    success: true,
-    products:[],
+    
+onst pathlocation = path.resolve();
+res.sendFile(path.join(pathlocation, "./index.html"));
 
-});
+
 });
 
 const quotes = [
@@ -31,7 +31,7 @@ app.get('/randomQuote', (req, res) => {
 
 
   app.get('/', (req, res) => {
-    res.render('index.html');
+
   });
 
 
