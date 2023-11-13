@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static('./'))
 app.get("/getproducts",(req,res)=>{
     
-onst pathlocation = path.resolve();
+const pathlocation = path.resolve();
 res.sendFile(path.join(pathlocation, "./index.html"));
 
 
