@@ -1,7 +1,7 @@
 import express  from "express";
 import path from "path";
-const student = require('student');
-const LocalStrategy = require ('Student-Local').Strategy;
+const passport = require('passport');
+const LocalStrategy = require ('passport-Local').Strategy;
 const jwt = require ('jsonwebtoken'); 
 const expressJwt  = require ('express-jwt');
 
@@ -20,7 +20,7 @@ const users = [
 ];
 passport.use(new LocalStrategy(
     (username, password, done)=> {
-        const user = users.find(u =>u.username === && u.password === password); 
+        const user = users.find(u =>u.username === username && u.password === password); 
 if (user) {
     return done (null, user);
 }else{
@@ -42,7 +42,7 @@ app.use(passport.initialize());
 app.post('/login',
          passport.authenticate('local', {session: false}),
          (req,res) =>{
-             const token = jwt.sign({id: req.user.id, username: req.user.username}, jwtSecret;
+             const token = jwt.sign({id: req.user.id, username: req.user.username}, jwtSecret);
              res.json({token});
          }
          };
