@@ -1,5 +1,8 @@
 import express  from "express";
 import path from "path";
+const student = require('student');
+const LocalStrategy = require ('Student-Local').Strategy;
+
 
 
 const app = express();
