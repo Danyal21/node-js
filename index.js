@@ -18,7 +18,7 @@ const users = [
     { id:1, username: 'user1'; password: 'password1'},
     { id:2, username: 'user2'; password: 'password2'},
 ];
-student.use(new LocalStrategy(
+passport.use(new LocalStrategy(
     (username, password, done)=> {
         const user = users.find(u =>u.username === && u.password === password); 
 if (user) {
@@ -28,6 +28,14 @@ if (user) {
 }
     }
     ));
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+passport.deserializeUser((id, done) => {
+  const user = users.find(u => u.id === id);
+  done(null, user);
+});
+
 
 const quotes = [
     "Be a guide, Not a judge.",
