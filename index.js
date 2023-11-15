@@ -2,11 +2,11 @@ import express  from "express";
 import path from "path";
 const student = require('student');
 const LocalStrategy = require ('Student-Local').Strategy;
-
+const jwt = require ('jsonwebtoken'); 
+const expressJwt  = require ('express-jwt');
 
 
 const app = express();
-
 app.use(express.static('./'))
 app.get("/getproducts",(req,res)=>{
     
@@ -41,3 +41,5 @@ app.get('/randomQuote', (req, res) => {
 app.listen(5000, ()=>{
 console.log("Server is working");
 });
+
+
