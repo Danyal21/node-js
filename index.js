@@ -35,7 +35,7 @@ passport.deserializeUser((id, done) => {
   const user = users.find(u => u.id === id);
   done(null, user);
 });
-const jwtSecret = 'your secret-key';
+const jwtSecret = 'your-secret-key';
 app.use(express.json());
 app.use(passport.initialize());
 
@@ -45,7 +45,7 @@ app.post('/login',
              const token = jwt.sign({id: req.user.id, username: req.user.username}, jwtSecret);
              res.json({token});
          }
-         };
+         );
 app.get('/protected',
         expressJwt({secret: jwtSecret }),
         (req, res) => {
