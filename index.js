@@ -13,7 +13,6 @@ app.get("/getproducts",(req,res)=>{
 const pathlocation = path.resolve();
 res.render('index.html');
 
-
 });
 
 const quotes = [
@@ -31,15 +30,13 @@ app.get('/randomQuote', (req, res) => {
   app.get('/Cute', (req, res) => {
     res.json({ message: 'tic, false!' });
   });
-
-
   app.get('/', (req, res) => {
-
-  });
+ });
 
 
 app.listen(5000, ()=>{
 console.log("Server is working");
 });
+
 
 
